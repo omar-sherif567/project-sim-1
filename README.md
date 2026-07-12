@@ -30,7 +30,7 @@ Follow these step-by-step commands inside your terminal to run the engine:
 
 1. **Clone the Repository:**
    ```bash
-   git clone [https://github.com/omar-sherif567/project-sim-1.git](https://github.com/omar-sherif567/project-sim-1.git)
+   git clone [https://github.com/omar-sherif57/project-sim-1.git](https://github.com/omar-sherif57/project-sim-1.git)
 ## Description
 Refactored the application into a clean, modular MVC architecture, resolving database pricing bugs, and completed full backend lifecycle validation for both cart management and customer checkout processing.
 
