@@ -1,8 +1,6 @@
 const Cart = require('../models/Cart');
 const Product = require('../models/Product');
 
-// @desc    Add item to cart
-// @route   POST /api/cart/items
 exports.addToCart = async (req, res) => {
     try {
         const { productId, quantity } = req.body;
@@ -53,8 +51,6 @@ exports.addToCart = async (req, res) => {
     }
 };
 
-// @desc    Update quantity
-// @route   PATCH /api/cart/items/:productId
 exports.updateCartItem = async (req, res) => {
     try {
         const { productId } = req.params;
@@ -94,8 +90,6 @@ exports.updateCartItem = async (req, res) => {
     }
 };
 
-// @desc    Remove single item
-// @route   DELETE /api/cart/items/:productId
 exports.removeItem = async (req, res) => {
     try {
         const { productId } = req.params;
@@ -115,8 +109,6 @@ exports.removeItem = async (req, res) => {
     }
 };
 
-// @desc    View cart with populated products
-// @route   GET /api/cart
 exports.getCart = async (req, res) => {
     try {
         let cart = await Cart.findOne().populate('items.product');
@@ -129,8 +121,6 @@ exports.getCart = async (req, res) => {
     }
 };
 
-// @desc    Clear entire cart
-// @route   DELETE /api/cart
 exports.clearCart = async (req, res) => {
     try {
         let cart = await Cart.findOne();

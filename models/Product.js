@@ -22,11 +22,11 @@ const productSchema = new mongoose.Schema(
     },
     category: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Category', // Links this field directly to the Category model
+      ref: 'Category',
       required: [true, 'Product category reference is required'],
     },
     images: {
-      type: [String], // Array of strings for image URLs
+      type: [String],
       default: [],
     },
     inStock: {

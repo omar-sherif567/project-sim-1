@@ -1,4 +1,3 @@
-// models/Category.js
 const mongoose = require('mongoose');
 
 const categorySchema = new mongoose.Schema(
@@ -17,7 +16,7 @@ const categorySchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, // Automatically handles createdAt and updatedAt fields
+    timestamps: true,
   }
 );
 

@@ -1,11 +1,9 @@
-// db/seed.js (or root seed.js)
-require('dotenv').config(); // Rule 1: First line must configure environment variables
+require('dotenv').config();
 const mongoose = require('mongoose');
-const connectDB = require('../config/db');
-const Category = require('../models/Category');
-const Product = require('../models/Product');
+const connectDB = require('./config/db');
+const Category = require('./models/Category');
+const Product = require('./models/Product');
 
-// Sample Data Structures (Step 3: At least 3 categories, 6 products)
 const sampleCategories = [
   { name: 'Electronics', description: 'Gadgets, devices, and computing essentials', slug: 'electronics' },
   { name: 'Books', description: 'Physical books, e-books, and educational audio', slug: 'books' },
@@ -14,29 +12,21 @@ const sampleCategories = [
 
 const seedDatabase = async () => {
   try {
-    // 1. Setup & Connection
     await connectDB();
 
-    // 2. Cleanup Before Seeding (Crucial Order to prevent dependency/reference breaks)
     console.log('Starting database cleanup...');
     
-    // Note: If you have an Order model later, delete it here first!
-    // await Order.deleteMany({}); 
-    
     await Product.deleteMany({});
-    console.log('🗑️ Products cleared.');
+    console.log('Products cleared.');
     
     await Category.deleteMany({});
-    console.log('🗑️ Categories cleared.');
+    console.log('Categories cleared.');
 
-    // 3. Populate Sample Data
     console.log('Seeding new data...');
     
-    // Insert Categories first so we can obtain valid ObjectIds for relation references
     const createdCategories = await Category.insertMany(sampleCategories);
-    console.log(`✅ Successfully seeded ${createdCategories.length} categories.`);
+    console.log(`Successfully seeded ${createdCategories.length} categories.`);
 
-    // Map categories to dynamic variables to cleanly reference their auto-generated MongoDB IDs
     const [electronics, books, apparel] = createdCategories;
 
     const sampleProducts = [
@@ -45,7 +35,7 @@ const seedDatabase = async () => {
         description: 'Noise-canceling over-ear headphones',
         price: 99.99,
         stock: 25,
-        category: electronics._id, // References correct category _id
+        category: electronics._id,
         images: ['https://example.com/images/headphones1.jpg'],
         inStock: true
       },
@@ -89,7 +79,7 @@ const seedDatabase = async () => {
         name: 'Running Sports Shoes',
         description: 'Lightweight breathable mesh sneakers',
         price: 65.00,
-        stock: 0, // Testing minimum boundary out-of-stock items
+        stock: 0,
         category: apparel._id,
         images: ['https://example.com/images/shoes.jpg'],
         inStock: false
@@ -97,17 +87,17 @@ const seedDatabase = async () => {
     ];
 
     const createdProducts = await Product.insertMany(sampleProducts);
-    console.log(`✅ Successfully seeded ${createdProducts.length} products.`);
+    console.log(`Successfully seeded ${createdProducts.length} products.`);
+    
+    console.log(`Summary: Added ${createdCategories.length} categories and ${createdProducts.length} products.`);
     
   } catch (error) {
-    console.error(`❌ Error during seeding lifecycle: ${error.message}`);
+    console.error(`Error during seeding lifecycle: ${error.message}`);
   } finally {
-    // 4. Disconnect from database in finally block to ensure it always executes
     await mongoose.disconnect();
-    console.log('🔌 Database connection safely closed.');
+    console.log('Database connection safely closed.');
     process.exit(0);
   }
 };
 
-// Run script execution
 seedDatabase();
