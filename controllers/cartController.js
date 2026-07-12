@@ -1,75 +1,47 @@
-const Cart = require('../models/Cart');
-const Product = require('../models/Product');
-
-// @desc    Add item to cart
-// @route   POST /api/cart
-// @access  Private (Hardcoded user for now, or via auth middleware)
 exports.addToCart = async (req, res, next) => {
   try {
     const { productId, quantity } = req.body;
-    
-    // 1. Hardcode a userId for testing since auth isn't fully set up yet
-    const userId = "64f1234567890123456789ab"; 
 
-    // 2. Check if product exists
     const product = await Product.findById(productId);
     if (!product) {
-      return res.status(404).json({ message: 'Product not found' });
+      return next(new AppError('No product found with that ID reference!', 404));
     }
 
-    // 3. Find or create the user's cart
-    let cart = await Cart.findOne({ userId });
-
+    let cart = await Cart.findOne();
     if (!cart) {
-      cart = new Cart({ userId, items: [], totalPrice: 0 });
+      cart = new Cart({ items: [], totalPrice: 0 });
     }
 
-    // 4. Check if the product is already in the cart
-    const itemIndex = cart.items.findIndex(item => item.productId.toString() === productId);
+    const existingItemIndex = cart.items.findIndex(
+      (item) => item.product.toString() === productId
+    );
 
-    if (itemIndex > -1) {
-      // Product exists, update quantity
-      cart.items[itemIndex].quantity += Number(quantity);
+    const targetQuantity = Number(quantity) || 1;
+
+    if (existingItemIndex > -1) {
+      // Use += if your front-end button is an "Add (+1)" button, 
+      // or change to = if the front-end sends the final absolute value.
+      cart.items[existingItemIndex].quantity += targetQuantity;
+      cart.items[existingItemIndex].price = product.price; // Caches latest price
     } else {
-      // Product doesn't exist, push new item
-      cart.items.push({ productId, quantity: Number(quantity) });
+      cart.items.push({
+        product: productId,
+        quantity: targetQuantity,
+        price: product.price
+      });
     }
 
-    // 5. Calculate total price dynamically
-    // We need to fetch prices for all items in the cart to ensure accuracy
-    let total = 0;
-    for (const item of cart.items) {
-      const itemProduct = await Product.findById(item.productId);
-      if (itemProduct) {
-        total += itemProduct.price * item.quantity;
-      }
-    }
-    cart.totalPrice = total;
+    // Double-check the total calculations using the fresh product price snapshot
+    cart.totalPrice = cart.items.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
 
-    // 6. Save the cart
     await cart.save();
-    res.status(200).json({ success: true, data: cart });
 
-  } catch (error) {
-    next(error);
-  }
-};
-
-// @desc    Get user cart
-// @route   GET /api/cart
-// @access  Private
-exports.getCart = async (req, res, next) => {
-  try {
-    const userId = "64f1234567890123456789ab"; // Matching testing ID
-
-    // Find cart and populate the product details inside the items array
-    const cart = await Cart.findOne({ userId }).populate('items.productId', 'name price image');
-
-    if (!cart) {
-      return res.status(200).json({ success: true, data: { items: [], totalPrice: 0 } });
-    }
-
-    res.status(200).json({ success: true, data: cart });
+    res.status(200).json({
+      status: 'success',
+      data: { cart }
+    });
   } catch (error) {
     next(error);
   }
