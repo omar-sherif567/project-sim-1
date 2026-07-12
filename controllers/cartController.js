@@ -1,48 +1,149 @@
-exports.addToCart = async (req, res, next) => {
-  try {
-    const { productId, quantity } = req.body;
+const Cart = require('../models/Cart');
+const Product = require('../models/Product');
 
-    const product = await Product.findById(productId);
-    if (!product) {
-      return next(new AppError('No product found with that ID reference!', 404));
+// @desc    Add item to cart
+// @route   POST /api/cart/items
+exports.addToCart = async (req, res) => {
+    try {
+        const { productId, quantity } = req.body;
+        const qtyToAdd = Number(quantity);
+
+        if (!qtyToAdd || qtyToAdd <= 0) {
+            return res.status(400).json({ message: 'Quantity must be greater than 0' });
+        }
+
+        const product = await Product.findById(productId);
+        if (!product) {
+            return res.status(404).json({ message: 'Product must exist' });
+        }
+
+        let cart = await Cart.findOne();
+        if (!cart) {
+            cart = new Cart({ items: [], totalPrice: 0 });
+        }
+
+        const existingItemIndex = cart.items.findIndex(item => item.product.toString() === productId);
+        const currentInCartQty = existingItemIndex > -1 ? cart.items[existingItemIndex].quantity : 0;
+
+        if (product.stock < (currentInCartQty + qtyToAdd)) {
+            return res.status(400).json({ 
+                message: `Insufficient stock. You already have ${currentInCartQty} in cart, and only ${product.stock} are available.` 
+            });
+        }
+
+        const productPrice = product.price;
+
+        if (existingItemIndex > -1) {
+            cart.items[existingItemIndex].quantity += qtyToAdd;
+            cart.items[existingItemIndex].price = productPrice; 
+        } else {
+            cart.items.push({
+                product: productId,
+                quantity: qtyToAdd,
+                price: productPrice
+            });
+        }
+
+        cart.totalPrice = cart.items.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+        await cart.save();
+        return res.status(200).json(cart);
+    } catch (error) {
+        return res.status(500).json({ message: 'Server error', error: error.message });
     }
+};
 
-    let cart = await Cart.findOne();
-    if (!cart) {
-      cart = new Cart({ items: [], totalPrice: 0 });
+// @desc    Update quantity
+// @route   PATCH /api/cart/items/:productId
+exports.updateCartItem = async (req, res) => {
+    try {
+        const { productId } = req.params;
+        const { quantity } = req.body;
+        const newQty = Number(quantity);
+
+        if (newQty < 0) {
+            return res.status(400).json({ message: 'No negative quantity allowed' });
+        }
+
+        let cart = await Cart.findOne();
+        if (!cart) {
+            return res.status(404).json({ message: 'Cart not found' });
+        }
+
+        const itemIndex = cart.items.findIndex(item => item.product.toString() === productId);
+        if (itemIndex === -1) {
+            return res.status(404).json({ message: 'Item not found in cart' });
+        }
+
+        if (newQty === 0) {
+            cart.items.splice(itemIndex, 1);
+        } else {
+            const product = await Product.findById(productId);
+            if (!product || product.stock < newQty) {
+                return res.status(400).json({ message: 'Insufficient stock available' });
+            }
+            cart.items[itemIndex].quantity = newQty;
+        }
+
+        cart.totalPrice = cart.items.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+        await cart.save();
+        return res.status(200).json(cart);
+    } catch (error) {
+        return res.status(500).json({ message: 'Server error', error: error.message });
     }
+};
 
-    const existingItemIndex = cart.items.findIndex(
-      (item) => item.product.toString() === productId
-    );
+// @desc    Remove single item
+// @route   DELETE /api/cart/items/:productId
+exports.removeItem = async (req, res) => {
+    try {
+        const { productId } = req.params;
 
-    const targetQuantity = Number(quantity) || 1;
+        let cart = await Cart.findOne();
+        if (!cart) {
+            return res.status(404).json({ message: 'Cart not found' });
+        }
 
-    if (existingItemIndex > -1) {
-      // Use += if your front-end button is an "Add (+1)" button, 
-      // or change to = if the front-end sends the final absolute value.
-      cart.items[existingItemIndex].quantity += targetQuantity;
-      cart.items[existingItemIndex].price = product.price; // Caches latest price
-    } else {
-      cart.items.push({
-        product: productId,
-        quantity: targetQuantity,
-        price: product.price
-      });
+        cart.items = cart.items.filter(item => item.product.toString() !== productId);
+        cart.totalPrice = cart.items.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+        await cart.save();
+        return res.status(200).json(cart);
+    } catch (error) {
+        return res.status(500).json({ message: 'Server error', error: error.message });
     }
+};
 
-    // Double-check the total calculations using the fresh product price snapshot
-    cart.totalPrice = cart.items.reduce((total, item) => {
-      return total + item.price * item.quantity;
-    }, 0);
+// @desc    View cart with populated products
+// @route   GET /api/cart
+exports.getCart = async (req, res) => {
+    try {
+        let cart = await Cart.findOne().populate('items.product');
+        if (!cart) {
+            return res.status(200).json({ items: [], totalPrice: 0 });
+        }
+        return res.status(200).json(cart);
+    } catch (error) {
+        return res.status(500).json({ message: 'Server error', error: error.message });
+    }
+};
 
-    await cart.save();
+// @desc    Clear entire cart
+// @route   DELETE /api/cart
+exports.clearCart = async (req, res) => {
+    try {
+        let cart = await Cart.findOne();
+        if (!cart) {
+            return res.status(200).json({ items: [], totalPrice: 0 });
+        }
 
-    res.status(200).json({
-      status: 'success',
-      data: { cart }
-    });
-  } catch (error) {
-    next(error);
-  }
+        cart.items = [];
+        cart.totalPrice = 0;
+
+        await cart.save();
+        return res.status(200).json(cart);
+    } catch (error) {
+        return res.status(500).json({ message: 'Server error', error: error.message });
+    }
 };
