@@ -50,10 +50,9 @@ exports.getProductById = asyncHandler(async (req, res, next) => {
 });
 
 exports.createProduct = asyncHandler(async (req, res, next) => {
-  const targetCategoryExists = await Category.findById(req.body.category);
-  if (!targetCategoryExists) {
-    return next(new AppError('Category ID provided does not match any current records', 404));
-  }
+// Change req.body.categoryId to req.body.category
+  const categoryId = req.body.category || req.body.categoryId;
+  const categoryExists = await Category.findById(categoryId);
 
   const newProduct = await Product.create(req.body);
   res.status(201).json({

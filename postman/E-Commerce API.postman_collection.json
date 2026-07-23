@@ -11,12 +11,421 @@
       "name": "Categories",
       "item": [
         {
-          "name": "New Request",
+          "name": "Get All Categories",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/categories",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "categories"
+              ],
+              "query": [
+                {
+                  "key": "GET",
+                  "value": "{{baseUrl}}/api/categories/{{categoryId}}",
+                  "disabled": true
+                },
+                {
+                  "key": "POST",
+                  "value": "{{baseUrl}}/api/categories",
+                  "disabled": true
+                },
+                {
+                  "key": "PATCH",
+                  "value": "{{baseUrl}}/api/categories/{{categoryId}}",
+                  "disabled": true
+                },
+                {
+                  "key": "DELETE",
+                  "value": "{{baseUrl}}/api/categories/{{categoryId}}",
+                  "disabled": true
+                }
+              ]
+            }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Get All Categories",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/categories",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "categories"
+                  ],
+                  "query": [
+                    {
+                      "key": "GET",
+                      "value": "{{baseUrl}}/api/categories/{{categoryId}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "POST",
+                      "value": "{{baseUrl}}/api/categories",
+                      "disabled": true
+                    },
+                    {
+                      "key": "PATCH",
+                      "value": "{{baseUrl}}/api/categories/{{categoryId}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "DELETE",
+                      "value": "{{baseUrl}}/api/categories/{{categoryId}}",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "699"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2bb-C+Y6f8I79RRiM8a+lQ3UhUQBjHY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:26:49 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"results\": 3,\n    \"data\": {\n        \"categories\": [\n            {\n                \"_id\": \"6a6121304689f3329556cbce\",\n                \"name\": \"Electronics\",\n                \"description\": \"Gadgets, devices, and computing essentials\",\n                \"slug\": \"electronics\",\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.553Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.553Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbcf\",\n                \"name\": \"Books\",\n                \"description\": \"Physical books, e-books, and educational audio\",\n                \"slug\": \"books\",\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.556Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.556Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd0\",\n                \"name\": \"Apparel\",\n                \"description\": \"Clothing, footwear, and accessories\",\n                \"slug\": \"apparel\",\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.556Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.556Z\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Category by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Category by ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/categories",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "699"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2bb-C+Y6f8I79RRiM8a+lQ3UhUQBjHY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:33:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"results\": 3,\n    \"data\": {\n        \"categories\": [\n            {\n                \"_id\": \"6a6121304689f3329556cbce\",\n                \"name\": \"Electronics\",\n                \"description\": \"Gadgets, devices, and computing essentials\",\n                \"slug\": \"electronics\",\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.553Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.553Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbcf\",\n                \"name\": \"Books\",\n                \"description\": \"Physical books, e-books, and educational audio\",\n                \"slug\": \"books\",\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.556Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.556Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd0\",\n                \"name\": \"Apparel\",\n                \"description\": \"Clothing, footwear, and accessories\",\n                \"slug\": \"apparel\",\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.556Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.556Z\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"smth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Category",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"smth\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/categories",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "175"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"af-ATSk0BA00G510LuzBYAhWpJ3+yk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:41:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"category\": {\n            \"name\": \"smth\",\n            \"_id\": \"6a614709140a52a7e4523c70\",\n            \"createdAt\": \"2026-07-22T22:41:13.672Z\",\n            \"updatedAt\": \"2026-07-22T22:41:13.672Z\",\n            \"__v\": 0\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/6a6121304689f3329556cbce",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "6a6121304689f3329556cbce"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Category",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/categories/6a6121304689f3329556cbce",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories",
+                    "6a6121304689f3329556cbce"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "262"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"106-iDzC+VmnBMDlA1ODrahmT5eS5CI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:45:45 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"category\": {\n            \"_id\": \"6a6121304689f3329556cbce\",\n            \"name\": \"Electronics\",\n            \"description\": \"Gadgets, devices, and computing essentials\",\n            \"slug\": \"electronics\",\n            \"__v\": 0,\n            \"createdAt\": \"2026-07-22T19:59:44.553Z\",\n            \"updatedAt\": \"2026-07-22T19:59:44.553Z\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/6a6121304689f3329556cbce",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "6a6121304689f3329556cbce"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Category",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/categories/6a6121304689f3329556cbce",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories",
+                    "6a6121304689f3329556cbce"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:46:18 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": null
+            }
+          ]
         }
       ]
     },
@@ -24,12 +433,376 @@
       "name": "Orders",
       "item": [
         {
-          "name": "New Request",
+          "name": "Create Order (Checkout)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"shippingAddress\": \"123 Main St, Cairo, Egypt\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/checkout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "orders",
+                "checkout"
+              ],
+              "query": [
+                {
+                  "key": "POST",
+                  "value": "{{baseUrl}}/api/orders/checkout",
+                  "disabled": true
+                },
+                {
+                  "key": "GET",
+                  "value": "{{baseUrl}}/api/orders",
+                  "disabled": true
+                },
+                {
+                  "key": "GET",
+                  "value": "{{baseUrl}}/api/orders/{{orderId}}",
+                  "disabled": true
+                },
+                {
+                  "key": "PATCH",
+                  "value": "{{baseUrl}}/api/orders/{{orderId}}/status",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Order (Checkout)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"shippingAddress\": \"123 Main St, Cairo, Egypt\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/orders/checkout",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "orders",
+                    "checkout"
+                  ],
+                  "query": [
+                    {
+                      "key": "POST",
+                      "value": "{{baseUrl}}/api/orders/checkout",
+                      "disabled": true
+                    },
+                    {
+                      "key": "GET",
+                      "value": "{{baseUrl}}/api/orders",
+                      "disabled": true
+                    },
+                    {
+                      "key": "GET",
+                      "value": "{{baseUrl}}/api/orders/{{orderId}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "PATCH",
+                      "value": "{{baseUrl}}/api/orders/{{orderId}}/status",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "351"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"15f-b/Flm3MmBfVj60bNdk0roG+HtqQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 01:28:49 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"orderNumber\": \"ORD-1784770129236-46\",\n    \"items\": [\n        {\n            \"product\": \"6a6121304689f3329556cbd2\",\n            \"name\": \"Mechanical Gaming Keyboard\",\n            \"price\": 74.5,\n            \"quantity\": 1\n        }\n    ],\n    \"totalPrice\": 74.5,\n    \"status\": \"Pending\",\n    \"shippingAddress\": \"123 Main St, Cairo, Egypt\",\n    \"_id\": \"6a616e51ad112d13811ae9c0\",\n    \"createdAt\": \"2026-07-23T01:28:49.238Z\",\n    \"updatedAt\": \"2026-07-23T01:28:49.238Z\",\n    \"__v\": 0\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All User Orders",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "orders"
+              ]
+            }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Get All User Orders",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "orders"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:47:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[]"
+            }
+          ]
+        },
+        {
+          "name": "Get Order Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/{{orderId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "orders",
+                "{{orderId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Order Details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/orders/{{orderId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "orders",
+                    "{{orderId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:47:21 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[]"
+            }
+          ]
+        },
+        {
+          "name": "Cancel or Update Order",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"Cancelled\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/6a616e51ad112d13811ae9c0/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "orders",
+                "6a616e51ad112d13811ae9c0",
+                "status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Cancel or Update Order",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"status\": \"Cancelled\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/orders/6a616e51ad112d13811ae9c0/status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "orders",
+                    "6a616e51ad112d13811ae9c0",
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "353"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"161-mL4fzIvWxO4Dq9uc2EWhxag1KF4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 01:33:53 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"_id\": \"6a616e51ad112d13811ae9c0\",\n    \"orderNumber\": \"ORD-1784770129236-46\",\n    \"items\": [\n        {\n            \"product\": \"6a6121304689f3329556cbd2\",\n            \"name\": \"Mechanical Gaming Keyboard\",\n            \"price\": 74.5,\n            \"quantity\": 1\n        }\n    ],\n    \"totalPrice\": 74.5,\n    \"status\": \"Cancelled\",\n    \"shippingAddress\": \"123 Main St, Cairo, Egypt\",\n    \"createdAt\": \"2026-07-23T01:28:49.238Z\",\n    \"updatedAt\": \"2026-07-23T01:33:53.758Z\",\n    \"__v\": 0\n}"
+            }
+          ]
         }
       ]
     },
@@ -37,12 +810,513 @@
       "name": "Cart",
       "item": [
         {
-          "name": "New Request",
+          "name": "Get User Cart",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cart",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart"
+              ],
+              "query": [
+                {
+                  "key": "GET",
+                  "value": "{{baseUrl}}/api/cart",
+                  "disabled": true
+                },
+                {
+                  "key": "POST",
+                  "value": "{{baseUrl}}/api/cart/items",
+                  "disabled": true
+                },
+                {
+                  "key": "PATCH",
+                  "value": "{{baseUrl}}/api/cart/items/{{productId}}",
+                  "disabled": true
+                },
+                {
+                  "key": "DELETE",
+                  "value": "{{baseUrl}}/api/cart/items/{{productId}}",
+                  "disabled": true
+                },
+                {
+                  "key": "DELETE",
+                  "value": "{{baseUrl}}/api/cart",
+                  "disabled": true
+                }
+              ]
+            }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Get User Cart",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/cart",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "cart"
+                  ],
+                  "query": [
+                    {
+                      "key": "GET",
+                      "value": "{{baseUrl}}/api/cart",
+                      "disabled": true
+                    },
+                    {
+                      "key": "POST",
+                      "value": "{{baseUrl}}/api/cart/items",
+                      "disabled": true
+                    },
+                    {
+                      "key": "PATCH",
+                      "value": "{{baseUrl}}/api/cart/items/{{productId}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "DELETE",
+                      "value": "{{baseUrl}}/api/cart/items/{{productId}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "DELETE",
+                      "value": "{{baseUrl}}/api/cart",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "27"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1b-As2nEJOPqgNuuyNNlazSZJbJSbs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 23:18:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"items\": [],\n    \"totalPrice\": 0\n}"
+            }
+          ]
+        },
+        {
+          "name": "Add Item to Cart",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": \"6a6121304689f3329556cbd2\",\r\n  \"quantity\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/items",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "items"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Add Item to Cart",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"productId\": \"6a6121304689f3329556cbd1\",\r\n  \"quantity\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/cart/items",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "cart",
+                    "items"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "215"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"d7-VvsIEgB8govpKorXG9iebNXm8AA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 23:19:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"items\": [\n        {\n            \"product\": \"6a6121304689f3329556cbd1\",\n            \"quantity\": 1,\n            \"price\": 99.99\n        }\n    ],\n    \"totalPrice\": 99.99,\n    \"_id\": \"6a61501f9763c578397dd608\",\n    \"createdAt\": \"2026-07-22T23:19:59.256Z\",\n    \"updatedAt\": \"2026-07-22T23:19:59.256Z\",\n    \"__v\": 0\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Item Quantity",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": \"6a614e059763c578397dd607\",\r\n  \"quantity\": 5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/items/6a6121304689f3329556cbd2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "items",
+                "6a6121304689f3329556cbd2"
+              ],
+              "query": [
+                {
+                  "key": "GET",
+                  "value": "{{baseUrl}}/api/cart",
+                  "disabled": true
+                },
+                {
+                  "key": "POST",
+                  "value": "{{baseUrl}}/api/cart/items",
+                  "disabled": true
+                },
+                {
+                  "key": "PATCH",
+                  "value": "{{baseUrl}}/api/cart/items/{{productId}}",
+                  "disabled": true
+                },
+                {
+                  "key": "DELETE",
+                  "value": "{{baseUrl}}/api/cart/items/{{productId}}",
+                  "disabled": true
+                },
+                {
+                  "key": "DELETE",
+                  "value": "{{baseUrl}}/api/cart",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Item Quantity",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"productId\": \"6a614e059763c578397dd607\",\r\n  \"quantity\": 5\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/cart/items/6a6121304689f3329556cbd2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "cart",
+                    "items",
+                    "6a6121304689f3329556cbd2"
+                  ],
+                  "query": [
+                    {
+                      "key": "GET",
+                      "value": "{{baseUrl}}/api/cart",
+                      "disabled": true
+                    },
+                    {
+                      "key": "POST",
+                      "value": "{{baseUrl}}/api/cart/items",
+                      "disabled": true
+                    },
+                    {
+                      "key": "PATCH",
+                      "value": "{{baseUrl}}/api/cart/items/{{productId}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "DELETE",
+                      "value": "{{baseUrl}}/api/cart/items/{{productId}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "DELETE",
+                      "value": "{{baseUrl}}/api/cart",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "281"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"119-oqKjhm2EaGVqVpwSXmJgoODtTOE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 01:22:28 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"_id\": \"6a61501f9763c578397dd608\",\n    \"items\": [\n        {\n            \"product\": \"6a6121304689f3329556cbd1\",\n            \"quantity\": 1,\n            \"price\": 99.99\n        },\n        {\n            \"product\": \"6a6121304689f3329556cbd2\",\n            \"quantity\": 5,\n            \"price\": 74.5\n        }\n    ],\n    \"totalPrice\": 472.49,\n    \"createdAt\": \"2026-07-22T23:19:59.256Z\",\n    \"updatedAt\": \"2026-07-23T01:22:27.937Z\",\n    \"__v\": 1\n}"
+            }
+          ]
+        },
+        {
+          "name": "Remove Item from Cart",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/items/{{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart",
+                "items",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Remove Item from Cart",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/cart/items/{{productId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "cart",
+                    "items",
+                    "{{productId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "281"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"119-oqKjhm2EaGVqVpwSXmJgoODtTOE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 01:22:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"_id\": \"6a61501f9763c578397dd608\",\n    \"items\": [\n        {\n            \"product\": \"6a6121304689f3329556cbd1\",\n            \"quantity\": 1,\n            \"price\": 99.99\n        },\n        {\n            \"product\": \"6a6121304689f3329556cbd2\",\n            \"quantity\": 5,\n            \"price\": 74.5\n        }\n    ],\n    \"totalPrice\": 472.49,\n    \"createdAt\": \"2026-07-22T23:19:59.256Z\",\n    \"updatedAt\": \"2026-07-23T01:22:27.937Z\",\n    \"__v\": 1\n}"
+            }
+          ]
+        },
+        {
+          "name": "Clear Cart",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cart",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "cart"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Clear Cart",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/cart",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "cart"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "146"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"92-OKn+WvBdUIfIfIh8LCvHeIdORaY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Jul 2026 01:24:33 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"_id\": \"6a61501f9763c578397dd608\",\n    \"items\": [],\n    \"totalPrice\": 0,\n    \"createdAt\": \"2026-07-22T23:19:59.256Z\",\n    \"updatedAt\": \"2026-07-23T01:24:33.572Z\",\n    \"__v\": 2\n}"
+            }
+          ]
         }
       ]
     },
@@ -50,12 +1324,755 @@
       "name": "Products",
       "item": [
         {
-          "name": "New Request",
+          "name": "Get All Products",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Wireless Mouse\",\r\n  \"price\": 25,\r\n  \"stock\": 50,\r\n  \"category\": \"6a6121304689f3329556cbce\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "GET",
+                  "value": "{{baseUrl}}/api/products",
+                  "disabled": true
+                },
+                {
+                  "key": "GET",
+                  "value": "{{baseUrl}}/api/products?price[gte]=100%26sort=-price",
+                  "disabled": true
+                },
+                {
+                  "key": "GET",
+                  "value": "{{baseUrl}}/api/products/{{productId}}",
+                  "disabled": true
+                },
+                {
+                  "key": "POST",
+                  "value": "{{baseUrl}}/api/products",
+                  "disabled": true
+                },
+                {
+                  "key": "PATCH",
+                  "value": "{{baseUrl}}/api/products/{{productId}}",
+                  "disabled": true
+                },
+                {
+                  "key": "PATCH",
+                  "value": "{{baseUrl}}/api/products/{{productId}}/stock",
+                  "disabled": true
+                },
+                {
+                  "key": "DELETE",
+                  "value": "{{baseUrl}}/api/products/{{productId}}",
+                  "disabled": true
+                },
+                {
+                  "key": "GET",
+                  "value": "{{baseUrl}}/api/products/featured",
+                  "disabled": true
+                }
+              ]
+            }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Get All Products",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Wireless Mouse\",\r\n  \"price\": 25,\r\n  \"stock\": 50,\r\n  \"category\": \"6a6121304689f3329556cbce\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/products",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "GET",
+                      "value": "{{baseUrl}}/api/products",
+                      "disabled": true
+                    },
+                    {
+                      "key": "GET",
+                      "value": "{{baseUrl}}/api/products?price[gte]=100%26sort=-price",
+                      "disabled": true
+                    },
+                    {
+                      "key": "GET",
+                      "value": "{{baseUrl}}/api/products/{{productId}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "POST",
+                      "value": "{{baseUrl}}/api/products",
+                      "disabled": true
+                    },
+                    {
+                      "key": "PATCH",
+                      "value": "{{baseUrl}}/api/products/{{productId}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "PATCH",
+                      "value": "{{baseUrl}}/api/products/{{productId}}/stock",
+                      "disabled": true
+                    },
+                    {
+                      "key": "DELETE",
+                      "value": "{{baseUrl}}/api/products/{{productId}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "GET",
+                      "value": "{{baseUrl}}/api/products/featured",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2383"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"94f-tE4YUWK3oW9Qh/0CNXnaVzuR1zU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:56:53 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"results\": 6,\n    \"data\": {\n        \"products\": [\n            {\n                \"_id\": \"6a6121304689f3329556cbd1\",\n                \"name\": \"Wireless Bluetooth Headphones\",\n                \"description\": \"Noise-canceling over-ear headphones\",\n                \"price\": 99.99,\n                \"stock\": 25,\n                \"category\": null,\n                \"images\": [\n                    \"https://example.com/images/headphones1.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd2\",\n                \"name\": \"Mechanical Gaming Keyboard\",\n                \"description\": \"RGB backlit tactile mechanical keyboard\",\n                \"price\": 74.5,\n                \"stock\": 15,\n                \"category\": null,\n                \"images\": [\n                    \"https://example.com/images/keyboard.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd3\",\n                \"name\": \"The Pragmatic Programmer Book\",\n                \"description\": \"Your journey to mastery classic software book\",\n                \"price\": 39.99,\n                \"stock\": 40,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbcf\",\n                    \"name\": \"Books\",\n                    \"description\": \"Physical books, e-books, and educational audio\"\n                },\n                \"images\": [\n                    \"https://example.com/images/book1.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd4\",\n                \"name\": \"Node.js Design Patterns\",\n                \"description\": \"Master production grade backend patterns\",\n                \"price\": 45,\n                \"stock\": 12,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbcf\",\n                    \"name\": \"Books\",\n                    \"description\": \"Physical books, e-books, and educational audio\"\n                },\n                \"images\": [\n                    \"https://example.com/images/book2.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd5\",\n                \"name\": \"Classic Leather Jacket\",\n                \"description\": \"Premium slim-fit vintage leather apparel jacket\",\n                \"price\": 189,\n                \"stock\": 8,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbd0\",\n                    \"name\": \"Apparel\",\n                    \"description\": \"Clothing, footwear, and accessories\"\n                },\n                \"images\": [\n                    \"https://example.com/images/jacket.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd6\",\n                \"name\": \"Running Sports Shoes\",\n                \"description\": \"Lightweight breathable mesh sneakers\",\n                \"price\": 65,\n                \"stock\": 0,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbd0\",\n                    \"name\": \"Apparel\",\n                    \"description\": \"Clothing, footwear, and accessories\"\n                },\n                \"images\": [\n                    \"https://example.com/images/shoes.jpg\"\n                ],\n                \"inStock\": false,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Single Product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/{{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Single Product",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/products/{{productId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "products",
+                    "{{productId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2383"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"94f-tE4YUWK3oW9Qh/0CNXnaVzuR1zU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:57:22 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"results\": 6,\n    \"data\": {\n        \"products\": [\n            {\n                \"_id\": \"6a6121304689f3329556cbd1\",\n                \"name\": \"Wireless Bluetooth Headphones\",\n                \"description\": \"Noise-canceling over-ear headphones\",\n                \"price\": 99.99,\n                \"stock\": 25,\n                \"category\": null,\n                \"images\": [\n                    \"https://example.com/images/headphones1.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd2\",\n                \"name\": \"Mechanical Gaming Keyboard\",\n                \"description\": \"RGB backlit tactile mechanical keyboard\",\n                \"price\": 74.5,\n                \"stock\": 15,\n                \"category\": null,\n                \"images\": [\n                    \"https://example.com/images/keyboard.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd3\",\n                \"name\": \"The Pragmatic Programmer Book\",\n                \"description\": \"Your journey to mastery classic software book\",\n                \"price\": 39.99,\n                \"stock\": 40,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbcf\",\n                    \"name\": \"Books\",\n                    \"description\": \"Physical books, e-books, and educational audio\"\n                },\n                \"images\": [\n                    \"https://example.com/images/book1.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd4\",\n                \"name\": \"Node.js Design Patterns\",\n                \"description\": \"Master production grade backend patterns\",\n                \"price\": 45,\n                \"stock\": 12,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbcf\",\n                    \"name\": \"Books\",\n                    \"description\": \"Physical books, e-books, and educational audio\"\n                },\n                \"images\": [\n                    \"https://example.com/images/book2.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd5\",\n                \"name\": \"Classic Leather Jacket\",\n                \"description\": \"Premium slim-fit vintage leather apparel jacket\",\n                \"price\": 189,\n                \"stock\": 8,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbd0\",\n                    \"name\": \"Apparel\",\n                    \"description\": \"Clothing, footwear, and accessories\"\n                },\n                \"images\": [\n                    \"https://example.com/images/jacket.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd6\",\n                \"name\": \"Running Sports Shoes\",\n                \"description\": \"Lightweight breathable mesh sneakers\",\n                \"price\": 65,\n                \"stock\": 0,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbd0\",\n                    \"name\": \"Apparel\",\n                    \"description\": \"Clothing, footwear, and accessories\"\n                },\n                \"images\": [\n                    \"https://example.com/images/shoes.jpg\"\n                ],\n                \"inStock\": false,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Filter Products by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products?category={{categoryId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "{{categoryId}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Filter Products by Category",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/products?category={{categoryId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "{{categoryId}}"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2383"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"94f-tE4YUWK3oW9Qh/0CNXnaVzuR1zU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:57:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"results\": 6,\n    \"data\": {\n        \"products\": [\n            {\n                \"_id\": \"6a6121304689f3329556cbd1\",\n                \"name\": \"Wireless Bluetooth Headphones\",\n                \"description\": \"Noise-canceling over-ear headphones\",\n                \"price\": 99.99,\n                \"stock\": 25,\n                \"category\": null,\n                \"images\": [\n                    \"https://example.com/images/headphones1.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd2\",\n                \"name\": \"Mechanical Gaming Keyboard\",\n                \"description\": \"RGB backlit tactile mechanical keyboard\",\n                \"price\": 74.5,\n                \"stock\": 15,\n                \"category\": null,\n                \"images\": [\n                    \"https://example.com/images/keyboard.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd3\",\n                \"name\": \"The Pragmatic Programmer Book\",\n                \"description\": \"Your journey to mastery classic software book\",\n                \"price\": 39.99,\n                \"stock\": 40,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbcf\",\n                    \"name\": \"Books\",\n                    \"description\": \"Physical books, e-books, and educational audio\"\n                },\n                \"images\": [\n                    \"https://example.com/images/book1.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd4\",\n                \"name\": \"Node.js Design Patterns\",\n                \"description\": \"Master production grade backend patterns\",\n                \"price\": 45,\n                \"stock\": 12,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbcf\",\n                    \"name\": \"Books\",\n                    \"description\": \"Physical books, e-books, and educational audio\"\n                },\n                \"images\": [\n                    \"https://example.com/images/book2.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd5\",\n                \"name\": \"Classic Leather Jacket\",\n                \"description\": \"Premium slim-fit vintage leather apparel jacket\",\n                \"price\": 189,\n                \"stock\": 8,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbd0\",\n                    \"name\": \"Apparel\",\n                    \"description\": \"Clothing, footwear, and accessories\"\n                },\n                \"images\": [\n                    \"https://example.com/images/jacket.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd6\",\n                \"name\": \"Running Sports Shoes\",\n                \"description\": \"Lightweight breathable mesh sneakers\",\n                \"price\": 65,\n                \"stock\": 0,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbd0\",\n                    \"name\": \"Apparel\",\n                    \"description\": \"Clothing, footwear, and accessories\"\n                },\n                \"images\": [\n                    \"https://example.com/images/shoes.jpg\"\n                ],\n                \"inStock\": false,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Search Products by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products?search=phone",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "phone"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Search Products by Name",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/products?search=phone",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "phone"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "378"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"17a-y3BzycP51jg+m1gRgcQLCmstDsA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:57:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"results\": 1,\n    \"data\": {\n        \"products\": [\n            {\n                \"_id\": \"6a6121304689f3329556cbd1\",\n                \"name\": \"Wireless Bluetooth Headphones\",\n                \"description\": \"Noise-canceling over-ear headphones\",\n                \"price\": 99.99,\n                \"stock\": 25,\n                \"category\": null,\n                \"images\": [\n                    \"https://example.com/images/headphones1.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Paginate Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products?page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Paginate Products",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/products?page=1&limit=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2383"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"94f-tE4YUWK3oW9Qh/0CNXnaVzuR1zU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 22:58:13 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"results\": 6,\n    \"data\": {\n        \"products\": [\n            {\n                \"_id\": \"6a6121304689f3329556cbd1\",\n                \"name\": \"Wireless Bluetooth Headphones\",\n                \"description\": \"Noise-canceling over-ear headphones\",\n                \"price\": 99.99,\n                \"stock\": 25,\n                \"category\": null,\n                \"images\": [\n                    \"https://example.com/images/headphones1.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd2\",\n                \"name\": \"Mechanical Gaming Keyboard\",\n                \"description\": \"RGB backlit tactile mechanical keyboard\",\n                \"price\": 74.5,\n                \"stock\": 15,\n                \"category\": null,\n                \"images\": [\n                    \"https://example.com/images/keyboard.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd3\",\n                \"name\": \"The Pragmatic Programmer Book\",\n                \"description\": \"Your journey to mastery classic software book\",\n                \"price\": 39.99,\n                \"stock\": 40,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbcf\",\n                    \"name\": \"Books\",\n                    \"description\": \"Physical books, e-books, and educational audio\"\n                },\n                \"images\": [\n                    \"https://example.com/images/book1.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.766Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.766Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd4\",\n                \"name\": \"Node.js Design Patterns\",\n                \"description\": \"Master production grade backend patterns\",\n                \"price\": 45,\n                \"stock\": 12,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbcf\",\n                    \"name\": \"Books\",\n                    \"description\": \"Physical books, e-books, and educational audio\"\n                },\n                \"images\": [\n                    \"https://example.com/images/book2.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd5\",\n                \"name\": \"Classic Leather Jacket\",\n                \"description\": \"Premium slim-fit vintage leather apparel jacket\",\n                \"price\": 189,\n                \"stock\": 8,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbd0\",\n                    \"name\": \"Apparel\",\n                    \"description\": \"Clothing, footwear, and accessories\"\n                },\n                \"images\": [\n                    \"https://example.com/images/jacket.jpg\"\n                ],\n                \"inStock\": true,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            },\n            {\n                \"_id\": \"6a6121304689f3329556cbd6\",\n                \"name\": \"Running Sports Shoes\",\n                \"description\": \"Lightweight breathable mesh sneakers\",\n                \"price\": 65,\n                \"stock\": 0,\n                \"category\": {\n                    \"_id\": \"6a6121304689f3329556cbd0\",\n                    \"name\": \"Apparel\",\n                    \"description\": \"Clothing, footwear, and accessories\"\n                },\n                \"images\": [\n                    \"https://example.com/images/shoes.jpg\"\n                ],\n                \"inStock\": false,\n                \"__v\": 0,\n                \"createdAt\": \"2026-07-22T19:59:44.767Z\",\n                \"updatedAt\": \"2026-07-22T19:59:44.767Z\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Sample Product\",\r\n  \"price\": 99.99,\r\n  \"description\": \"Product details here\",\r\n  \"category\": \"6a6121304689f3329556cbce\",\r\n  \"categoryId\": \"6a6121304689f3329556cbce\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Product",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Sample Product\",\r\n  \"price\": 99.99,\r\n  \"description\": \"Product details here\",\r\n  \"category\": \"6a6121304689f3329556cbce\",\r\n  \"categoryId\": \"6a6121304689f3329556cbce\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/products",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "products"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "310"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"136-fxl0gdmCC8ipwKX+HTksmN6lzz4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 23:11:01 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"product\": {\n            \"name\": \"Sample Product\",\n            \"description\": \"Product details here\",\n            \"price\": 99.99,\n            \"stock\": 0,\n            \"category\": \"6a6121304689f3329556cbce\",\n            \"images\": [],\n            \"inStock\": true,\n            \"_id\": \"6a614e059763c578397dd607\",\n            \"createdAt\": \"2026-07-22T23:11:01.184Z\",\n            \"updatedAt\": \"2026-07-22T23:11:01.184Z\",\n            \"__v\": 0\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"price\": 89.99\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products/{{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Product",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"price\": 89.99\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/products/{{productId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "products",
+                    "{{productId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "310"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"136-Js5fAEnytxzC2Jo853Ob3OIJvPY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 23:15:41 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"product\": {\n            \"_id\": \"6a614e059763c578397dd607\",\n            \"name\": \"Sample Product\",\n            \"description\": \"Product details here\",\n            \"price\": 89.99,\n            \"stock\": 0,\n            \"category\": \"6a6121304689f3329556cbce\",\n            \"images\": [],\n            \"inStock\": true,\n            \"createdAt\": \"2026-07-22T23:11:01.184Z\",\n            \"updatedAt\": \"2026-07-22T23:15:40.810Z\",\n            \"__v\": 0\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/{{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Product",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/products/{{productId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "products",
+                    "{{productId}}"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 22 Jul 2026 23:16:18 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": null
+            }
+          ]
         }
       ]
     }

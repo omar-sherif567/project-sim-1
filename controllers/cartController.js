@@ -1,6 +1,11 @@
 const Cart = require('../models/Cart');
 const Product = require('../models/Product');
 
+const getProductIdString = (productRef) => {
+    if (!productRef) return '';
+    return productRef._id ? productRef._id.toString() : productRef.toString();
+};
+
 exports.addToCart = async (req, res) => {
     try {
         const { productId, quantity } = req.body;
@@ -20,7 +25,7 @@ exports.addToCart = async (req, res) => {
             cart = new Cart({ items: [], totalPrice: 0 });
         }
 
-        const existingItemIndex = cart.items.findIndex(item => item.product.toString() === productId);
+        const existingItemIndex = cart.items.findIndex(item => getProductIdString(item.product) === productId);
         const currentInCartQty = existingItemIndex > -1 ? cart.items[existingItemIndex].quantity : 0;
 
         if (product.stock < (currentInCartQty + qtyToAdd)) {
@@ -66,7 +71,7 @@ exports.updateCartItem = async (req, res) => {
             return res.status(404).json({ message: 'Cart not found' });
         }
 
-        const itemIndex = cart.items.findIndex(item => item.product.toString() === productId);
+        const itemIndex = cart.items.findIndex(item => getProductIdString(item.product) === productId);
         if (itemIndex === -1) {
             return res.status(404).json({ message: 'Item not found in cart' });
         }
@@ -99,7 +104,7 @@ exports.removeItem = async (req, res) => {
             return res.status(404).json({ message: 'Cart not found' });
         }
 
-        cart.items = cart.items.filter(item => item.product.toString() !== productId);
+        cart.items = cart.items.filter(item => getProductIdString(item.product) !== productId);
         cart.totalPrice = cart.items.reduce((total, item) => total + (item.price * item.quantity), 0);
 
         await cart.save();

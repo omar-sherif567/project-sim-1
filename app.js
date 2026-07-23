@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoSanitize = require('express-mongo-sanitize');
-const connectDB = require('./config/db');
+const connectDB = require('./db/connectDB');
 const AppError = require('./utils/AppError');
 const globalErrorHandler = require('./middleware/errorHandler');
 
@@ -15,14 +15,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(mongoSanitize());
+// app.use(mongoSanitize());
 
 app.use('/api/categories', categoryRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
 
-app.all('*', (req, res, next) => {
+app.all(/(.*)/, (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server runtime endpoint blueprint!`, 404));
 });
 
@@ -34,6 +34,6 @@ const startServer = async () => {
   app.listen(PORT, () => {
     console.log(`API System active in ${process.env.NODE_ENV} engine loop mode on port ${PORT}`);
   });
-};S
+};
 
 startServer();
